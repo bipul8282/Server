@@ -1,4 +1,5 @@
-import File from "../models/file.js";
+// import File from "../models/file.js";
+const File = require("../models/file.js")
 
 
 
