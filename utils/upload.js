@@ -1,7 +1,12 @@
-// import multer from "multer";
-const multer = require("multer")
+// // import multer from "multer";
+// const multer = require("multer")
 
-const upload = multer({dest:'uploads'})
+// const upload = multer({dest:'uploads'})
 
 
-module.exports = upload
+// module.exports = upload
+const multer = require("multer");
+
+const upload = multer({ dest: 'uploads' });
+
+module.exports = upload;
