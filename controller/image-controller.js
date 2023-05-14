@@ -4,7 +4,7 @@ const File = require("../models/file.js")
 
 
 
-export const uploadImage = async (request,response) => {
+const uploadImage = async (request,response) => {
   const fileObj = {
     path : request.file.path,
     name : request.file.originalname
@@ -18,8 +18,7 @@ export const uploadImage = async (request,response) => {
   }
     
 }
-
-export const downloadImage = async (request,response) => {
+ const downloadImage = async (request,response) => {
     try{
     const file = await File.findById(request.params.fileId);
     file.downloadContent++;
@@ -32,3 +31,5 @@ console.error(error.message);
 return response.status(500).json({error:error.message});
     }
 }
+
+module.exports = {downloadImage, uploadImage}
