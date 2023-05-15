@@ -1,29 +1,21 @@
-// // import express from "express";
-// const express = require("express")
-// // import { uploadImage,downloadImage } from "../controller/image-controller.js";
-// const {uploadImage ,downloadImage} = require("../controller/image-controller.js")
-// // import upload from "../utils/upload.js";
-// const upload = require("../utils/upload.js")
+var express = require("express");
+var { uploadImage,downloadImage } = require("../controller/image-controller.js");
+var upload = require("../utils/upload.js");
 
-
-// const router = express.Router();
-
-
-// router.post('/upload',upload.single('file'), uploadImage);
-// router.get('/file/:fileId',downloadImage);
-
-// module.exports = router
-
-const express = require("express");
-const { uploadImage, downloadImage } = require("../controller/image-controller.js");
-const upload = require("../utils/upload.js");
 
 const router = express.Router();
 
-router.post('/upload', upload.single('file'), uploadImage);
-router.get('/file/:fileId', downloadImage);
+router.get('/',(req,res)=>{  
+  res.statusCode = 200;
+  res.setHeader('Content-Type', 'application/json');
+  res.json({ name: 'John Doe' });
+})
+router.post('/upload',upload.single('file'), uploadImage);
+router.get('/file/:fileId',downloadImage);
+
 
 module.exports = router;
+
 
 
 
